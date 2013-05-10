@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.vinalynn.voicectrl.mapper.VoiceControlCommandMapper">
+    <insert id="save" parameterType="org.vinalynn.voicectrl.doo.VoiceControlCommandDO">
+        INSERT INTO voice_control_command (
+                            id,                    user_id,                    command,                    create_date,                    is_loaded                ) VALUES (
+                            #{id} ,                    #{userId} ,                    #{command} ,                    #{createDate} ,                    #{isLoaded}                 )
+    </insert>
+
+    <update id="update" parameterType="org.vinalynn.voicectrl.doo.VoiceControlCommandDO">
+        UPDATE voice_control_command SET
+                                <if test="id != null">
+                    id = #{id},                    </if>
+                                <if test="userId != null">
+                    user_id = #{userId},                    </if>
+                                <if test="command != null">
+                    command = #{command},                    </if>
+                                <if test="createDate != null">
+                    create_date = #{createDate},                    </if>
+                                <if test="isLoaded != null">
+                    is_loaded = #{isLoaded}                    </if>
+                    where id = #{id}
+    </update>
+
+    <select id="findById" parameterType="long" resultType="org.vinalynn.voicectrl.doo.VoiceControlCommandDO">
+        SELECT
+                                        id AS id,                            user_id AS userId,                            command AS command,                            create_date AS createDate,                            is_loaded AS isLoaded                    FROM voice_control_command
+        where id = #{id}
+    </select>
+
+    <select id="findObjectByParam" parameterType="long" resultType="org.vinalynn.voicectrl.doo.VoiceControlCommandDO">
+        SELECT
+                            id AS id,                    user_id AS userId,                    command AS command,                    create_date AS createDate,                    is_loaded AS isLoaded                FROM voice_control_command
+        where 1=1 
+                    <if test="id != null">
+              and  id = #{id}
+            </if>
+                    <if test="userId != null">
+              and  user_id = #{userId}
+            </if>
+                    <if test="command != null">
+              and  command = #{command}
+            </if>
+                    <if test="createDate != null">
+              and  create_date = #{createDate}
+            </if>
+                    <if test="isLoaded != null">
+              and  is_loaded = #{isLoaded}
+            </if>
+            </select>
+    
+    <select id="delete" parameterType="long" resultType="org.vinalynn.voicectrl.doo.VoiceControlCommandDO">
+        delete from voice_control_command
+                            id AS id,                    user_id AS userId,                    command AS command,                    create_date AS createDate,                    is_loaded AS isLoaded                FROM voice_control_command
+        where 1=1 
+                    <if test="id != null">
+              and  id = #{id}
+            </if>
+                    <if test="userId != null">
+              and  user_id = #{userId}
+            </if>
+                    <if test="command != null">
+              and  command = #{command}
+            </if>
+                    <if test="createDate != null">
+              and  create_date = #{createDate}
+            </if>
+                    <if test="isLoaded != null">
+              and  is_loaded = #{isLoaded}
+            </if>
+            </select>
+</mapper>

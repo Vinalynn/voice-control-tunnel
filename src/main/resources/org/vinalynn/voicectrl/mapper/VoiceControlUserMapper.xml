@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.vinalynn.voicectrl.mapper.VoiceControlUserMapper">
+    <insert id="save" parameterType="org.vinalynn.voicectrl.doo.VoiceControlUserDO">
+        INSERT INTO voice_control_user (
+                            ID,                    CODE,                    NAME,                    PASSWORD,                    STATE                ) VALUES (
+                            #{ID} ,                    #{CODE} ,                    #{NAME} ,                    #{PASSWORD} ,                    #{STATE}                 )
+    </insert>
+
+    <update id="update" parameterType="org.vinalynn.voicectrl.doo.VoiceControlUserDO">
+        UPDATE voice_control_user SET
+                                <if test="ID != null">
+                    ID = #{ID},                    </if>
+                                <if test="CODE != null">
+                    CODE = #{CODE},                    </if>
+                                <if test="NAME != null">
+                    NAME = #{NAME},                    </if>
+                                <if test="PASSWORD != null">
+                    PASSWORD = #{PASSWORD},                    </if>
+                                <if test="STATE != null">
+                    STATE = #{STATE}                    </if>
+                    where id = #{id}
+    </update>
+
+    <select id="findById" parameterType="long" resultType="org.vinalynn.voicectrl.doo.VoiceControlUserDO">
+        SELECT
+                                        ID AS ID,                            CODE AS CODE,                            NAME AS NAME,                            PASSWORD AS PASSWORD,                            STATE AS STATE                    FROM voice_control_user
+        where id = #{id}
+    </select>
+
+    <select id="findObjectByParam" parameterType="long" resultType="org.vinalynn.voicectrl.doo.VoiceControlUserDO">
+        SELECT
+                            ID AS ID,                    CODE AS CODE,                    NAME AS NAME,                    PASSWORD AS PASSWORD,                    STATE AS STATE                FROM voice_control_user
+        where 1=1 
+                    <if test="ID != null">
+              and  ID = #{ID}
+            </if>
+                    <if test="CODE != null">
+              and  CODE = #{CODE}
+            </if>
+                    <if test="NAME != null">
+              and  NAME = #{NAME}
+            </if>
+                    <if test="PASSWORD != null">
+              and  PASSWORD = #{PASSWORD}
+            </if>
+                    <if test="STATE != null">
+              and  STATE = #{STATE}
+            </if>
+            </select>
+    
+    <select id="delete" parameterType="long" resultType="org.vinalynn.voicectrl.doo.VoiceControlUserDO">
+        delete from voice_control_user
+                            ID AS ID,                    CODE AS CODE,                    NAME AS NAME,                    PASSWORD AS PASSWORD,                    STATE AS STATE                FROM voice_control_user
+        where 1=1 
+                    <if test="ID != null">
+              and  ID = #{ID}
+            </if>
+                    <if test="CODE != null">
+              and  CODE = #{CODE}
+            </if>
+                    <if test="NAME != null">
+              and  NAME = #{NAME}
+            </if>
+                    <if test="PASSWORD != null">
+              and  PASSWORD = #{PASSWORD}
+            </if>
+                    <if test="STATE != null">
+              and  STATE = #{STATE}
+            </if>
+            </select>
+</mapper>
