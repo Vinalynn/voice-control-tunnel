@@ -1,0 +1,19 @@
+<!DOCTYPE configuration PUBLIC
+        "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--   <typeAliases>
+           <typeAlias alias="BeanStaticData" type="org.mjava.qa.common.dbbean.BeanStaticData"/>
+           &lt;!&ndash;        添加用户的&ndash;&gt;
+           <typeAlias alias="Authentication" type="org.mjava.qa.user.bean.Authentication"/>
+       </typeAliases>-->
+
+    <!--  <mappers>
+          <mapper resource="org/mjava/qa/user/mapper/IUserMapper.xml"/>
+      </mappers>-->
+
+    <mappers>
+        <mapper resource="org/vinalynn/voicectrl/mapper/VoiceControlUserMapper.xml"/>
+    </mappers>
+
+</configuration>
