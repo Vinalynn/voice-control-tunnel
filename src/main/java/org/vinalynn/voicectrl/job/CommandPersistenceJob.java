@@ -2,12 +2,7 @@ package org.vinalynn.voicectrl.job;
 
 import org.apache.log4j.Logger;
 import org.vinalynn.voicectrl.common.queue.CommandBlockingQueue;
-import org.vinalynn.voicectrl.doo.StaticConfigDataDO;
-import org.vinalynn.voicectrl.util.StaticDataUtil;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.HashMap;
 import java.util.List;
 
 /**
