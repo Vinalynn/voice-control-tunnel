@@ -6,4 +6,8 @@
     <bean id="voiceControlUserSV" class="org.vinalynn.voicectrl.service.impl.VoiceControlUserSVImpl">
         <property name="voiceControlUserMapper" ref="voiceControlUserMapper"/>
     </bean>
+
+    <bean id="staticConfigDataSV" class="org.vinalynn.voicectrl.service.impl.StaticConfigDataSVImpl">
+        <property name="staticConfigDataMapper" ref="staticConfigDataMapper"/>
+    </bean>
 </beans>
