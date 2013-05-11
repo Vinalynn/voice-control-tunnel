@@ -19,8 +19,9 @@ public class StaticDataUtil {
      * @param uGroup
      * @return
      */
-    public static HashMap<String, StaticConfigDataDO> getStaticDataByGroup(String uGroup) {
-        return (HashMap)CacheManager.getCache(StaticConfigDataCacheImpl.class).get(uGroup);
+    @SuppressWarnings("unchecked")
+	public static HashMap<String, StaticConfigDataDO> getStaticDataByGroup(String uGroup) {
+        return (HashMap<String, StaticConfigDataDO>)CacheManager.getCache(StaticConfigDataCacheImpl.class).get(uGroup);
     }
 
     /**
