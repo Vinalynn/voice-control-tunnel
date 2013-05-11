@@ -8,4 +8,6 @@ package org.vinalynn.voicectrl.common;
 public class GlobalVariable {
 
     public final static String WEIXIN_TOKEN = "estmWcIeiyWlidqkUAaw";
+    
+    public final static String VIEW_COMMON_STR = "common/str";
 }
