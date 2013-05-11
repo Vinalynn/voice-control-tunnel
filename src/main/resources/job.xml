@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 指令持久化 -->
+    <bean id="commandPersistenceJob" class="org.vinalynn.voicectrl.job.CommandPersistenceJob"/>
+
+    <bean id="commandPersistenceJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name= "targetObject" ref="commandPersistenceJob" />
+        <property name="targetMethod" value="persistence"/>
+    </bean>
+
+    <bean id="commandPersistenceJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <!-- see the example of method invoking job above -->
+        <property name="jobDetail" ref="commandPersistenceJobDetail" />
+
+        <property name="repeatInterval" value="1000" />
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="commandPersistenceJobTrigger" />
+            </list>
+        </property>
+    </bean>
+
+</beans>

@@ -67,8 +67,7 @@
     </bean>
 
 
-
-
+    <bean class="org.vinalynn.voicectrl.common.AppContextAwaredFactory"/>
 
 <!--    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
@@ -77,5 +76,6 @@
     <import resource="classpath:dao.xml"/>
     <import resource="classpath:service.xml"/>
     <import resource="classpath:web_mvc.xml"/>
-
+    <import resource="classpath:job.xml"/>
+    <import resource="classpath:cache.xml"/>
 </beans>

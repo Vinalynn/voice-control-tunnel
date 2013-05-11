@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface BaseMapper<T> {
 
-    List findObjectByParam(Map map);
+    List<T> findObjectByParam(Map map);
     void update(T t);
     int save(T t);
     T findById(Integer id);
