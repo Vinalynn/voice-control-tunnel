@@ -1,1 +1,1 @@
-${str}
+${str?default("null")}
