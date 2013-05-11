@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationListener;
  * Date: 13-5-11
  * Time: 上午10:19
  */
+@SuppressWarnings("rawtypes")
 public class CommandPersistenceContextListener implements ApplicationListener {
 
     @Override

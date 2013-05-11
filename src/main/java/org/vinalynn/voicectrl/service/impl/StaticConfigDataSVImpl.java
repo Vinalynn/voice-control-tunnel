@@ -20,7 +20,8 @@ public class StaticConfigDataSVImpl implements StaticConfigDataSV {
         this.staticConfigDataMapper = staticConfigDataMapper;
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public List<StaticConfigDataDO> getStaticConfigData() throws Exception {
         // query all config data
         return staticConfigDataMapper.findObjectByParam(new HashMap());
