@@ -2,7 +2,7 @@
 *.iml
 target/
 .project
-.setting/
+.settings/
 .classpath
 src/main/webapp/WEB-INF/lib/
 src/main/webapp/META-INF/
