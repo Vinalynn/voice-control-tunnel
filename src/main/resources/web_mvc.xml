@@ -39,7 +39,9 @@
 
 
 
-    <bean id="openWeixinController" class="org.vinalynn.voicectrl.web.controller.OpenWeixinController"/>
+    <bean id="openWeixinController" class="org.vinalynn.voicectrl.web.controller.OpenWeixinController">
+        <property name="staticConfigDataSV" ref="staticConfigDataSV"/>
+    </bean>
 
 
 </beans>

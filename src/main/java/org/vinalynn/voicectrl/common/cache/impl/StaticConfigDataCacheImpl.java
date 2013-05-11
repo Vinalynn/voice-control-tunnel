@@ -1,7 +1,6 @@
 package org.vinalynn.voicectrl.common.cache.impl;
 
 import org.apache.log4j.Logger;
-import org.vinalynn.voicectrl.common.AppContextFactory;
 import org.vinalynn.voicectrl.common.cache.ICache;
 import org.vinalynn.voicectrl.doo.StaticConfigDataDO;
 import org.vinalynn.voicectrl.service.interfaces.StaticConfigDataSV;

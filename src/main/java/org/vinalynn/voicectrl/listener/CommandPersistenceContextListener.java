@@ -1,6 +1,5 @@
 package org.vinalynn.voicectrl.listener;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 

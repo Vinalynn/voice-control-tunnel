@@ -19,6 +19,6 @@ public class VoiceControlUserSVImpl implements VoiceControlUserSV {
 
     @Override
     public VoiceControlUserDO findUserById(int id) throws Exception {
-        return (VoiceControlUserDO)voiceControlUserMapper.findById(id);
+        return (VoiceControlUserDO) voiceControlUserMapper.findById(id);
     }
 }

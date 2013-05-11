@@ -1,6 +1,5 @@
 package org.vinalynn.voicectrl.service.impl;
 
-import org.springframework.beans.BeanUtils;
 import org.vinalynn.voicectrl.doo.StaticConfigDataDO;
 import org.vinalynn.voicectrl.mapper.StaticConfigDataMapper;
 import org.vinalynn.voicectrl.service.interfaces.StaticConfigDataSV;

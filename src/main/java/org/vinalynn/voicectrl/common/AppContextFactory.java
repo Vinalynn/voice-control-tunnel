@@ -11,7 +11,6 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
-import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
