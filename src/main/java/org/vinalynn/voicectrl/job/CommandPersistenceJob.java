@@ -21,13 +21,13 @@ public class CommandPersistenceJob {
 
     public void persistence() throws Exception{
         //HashMap<String, StaticConfigDataDO> uGrpDatas = StaticDataUtil.getStaticDataByGroup("11");
-        if(log.isInfoEnabled()){
-            log.info("start do job at "+ new Timestamp(System.currentTimeMillis()));
+        //if(log.isInfoEnabled()){
+        //    log.info("start do job at "+ new Timestamp(System.currentTimeMillis()));
 
-        }
+        //}
 
         List<Object> commands = CommandBlockingQueue.pollAllRemainingCommands();
-        log.error(commands);
+        //log.error(commands);
 //        if(null != uGrpDatas){
 //            if(log.isInfoEnabled()){
 //                log.info("cached data size :"+uGrpDatas.size());
