@@ -90,32 +90,71 @@ public class OpenWeixinController {
 			log.info("operType:[" + operType + "]");
 			log.info("dir:[" + dir + "]");
 		}
-		
+		if (StringUtils.isEmpty(dir)) {
+			dir = "/";
+			if (log.isInfoEnabled()) {
+				log.info("dir was not defined. set default value \"/\"");
+			}
+		}
+
+		if (StringUtils.isEmpty(operType)) {
+			operType = "list";
+			if (log.isInfoEnabled()) {
+				log.info("operType was not defined. set default value \"list\"");
+			}
+		}
+
+		dir = StringUtils.replace(dir, "\\", "/");
+		if (!StringUtils.startsWith(dir, "/"))
+			dir = "/" + dir;
+
 		java.io.File file = new java.io.File(dir);
 		File[] fileList = file.listFiles();
-		fileList = fileList == null ? new File[]{} : fileList;
+		fileList = fileList == null ? new File[] {} : fileList;
 		List<String> filePathList = new ArrayList<String>();
 		for (File f : fileList) {
 			filePathList.add(f.getPath());
 		}
 		if (StringUtils.equalsIgnoreCase("list", operType)) {
-			StringBuilder sb = new StringBuilder("dirs:[");
-			for (String s : filePathList) {
-				sb.append(s).append("^");
+			StringBuilder sb = new StringBuilder();
+			sb.append("<a href=\"").append("/log-folder.request?dir=")
+					.append("/").append("\">ROOT</a><br>");
+
+			StringBuilder backStr = new StringBuilder(dir);
+			
+			sb.append("<a href=\"").append("/log-folder.request?dir=");
+			if(backStr.lastIndexOf("/") != backStr.length() - 1){
+				sb.append(backStr.delete(backStr.lastIndexOf("/") + 1, backStr.length()));
+			}else if(backStr.indexOf("/") != backStr.lastIndexOf("/")){
+				backStr = backStr.delete(backStr.lastIndexOf("/"), backStr.length());
+				sb.append(backStr.delete(backStr.lastIndexOf("/") + 1, backStr.length()));
+			}else{
+				sb.append("/");
 			}
-			if(-1 != sb.lastIndexOf("^")) sb.deleteCharAt(sb.lastIndexOf("^")); 
-			//sb;
-			model.addAttribute("str", sb.append("]").toString());
-		}else if (StringUtils.equalsIgnoreCase("del", operType)) {
-			if(StringUtils.equalsIgnoreCase("\\", dir) || StringUtils.equalsIgnoreCase("/", dir)){
+			sb.append("\">BACK</a><br>");
+
+			for (String s : filePathList) {
+				sb.append("<a href=\"").append("/log-folder.request?dir=")
+						.append(s).append("\">");
+				sb.append(s).append("</a><br>");
+			}
+			/*
+			 * if (-1 != sb.lastIndexOf("\n"))
+			 * sb.deleteCharAt(sb.lastIndexOf("^"));
+			 */
+			// sb;
+			model.addAttribute("str", sb.toString());
+		} else if (StringUtils.equalsIgnoreCase("del", operType)) {
+			if (StringUtils.equalsIgnoreCase("\\", dir)
+					|| StringUtils.equalsIgnoreCase("/", dir)) {
 				model.addAttribute("str", "root directory can not delete.");
-			}else if(StringUtils.equalsIgnoreCase("password1", psw)){
+			} else if (StringUtils.equalsIgnoreCase("password1", psw)) {
 				file.delete();
 				model.addAttribute("str", dir + " deleted.");
-			}else{
-				
+			} else {
+
 			}
-			
+
 		}
 		return GlobalVariable.VIEW_COMMON_STR;
 	}
