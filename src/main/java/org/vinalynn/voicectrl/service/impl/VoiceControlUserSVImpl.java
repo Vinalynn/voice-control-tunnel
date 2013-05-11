@@ -10,11 +10,12 @@ import org.vinalynn.voicectrl.service.interfaces.VoiceControlUserSV;
  * Time: 下午3:52
  */
 public class VoiceControlUserSVImpl implements VoiceControlUserSV {
-    private VoiceControlUserMapper voiceControlUserMapper;
+    private VoiceControlUserMapper<VoiceControlUserDO> voiceControlUserMapper;
 
-    public void setVoiceControlUserMapper(VoiceControlUserMapper voiceControlUserMapper) {
-        this.voiceControlUserMapper = voiceControlUserMapper;
-    }
+	public void setVoiceControlUserMapper(
+			VoiceControlUserMapper<VoiceControlUserDO> voiceControlUserMapper) {
+		this.voiceControlUserMapper = voiceControlUserMapper;
+	}
 
 
     @Override
